@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the world with Nambiyath. Discover new cultures, adventures, and make unforgettable memories with our travel services.">
+    <meta name="keywords" content="travel, adventure, explore, Nambiyath, world tour, culture, memories">
+    <meta name="author" content="Nambiyath">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.nambiyath.com" />
+    <meta property="og:title" content="Nambiyath - Explore the World">
+    <meta property="og:description" content="Explore the world with Nambiyath. Discover new cultures, adventures, and make unforgettable memories with our travel services.">
+    <meta property="og:image" content="https://i.pinimg.com/736x/fb/6f/a3/fb6fa35b0f77c6213e88ec9652f1919b.jpg">
+    <meta property="og:url" content="https://www.nambiyath.com">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="https://www.nambiyath.com/favicon.ico" type="image/x-icon">
+    <title>Nambiyath - Explore the World</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar */
+        header {
+            background: #1a1a1a;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff007a;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff007a;
+        }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 50px 5%;
+            background-color: #000;
+            border: 2px solid #00f0ff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #00f0ff;
+            margin: 50px auto;
+            max-width: 1200px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: #00f0ff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .hero-content .highlight {
+            color: #ff0080;
+            font-weight: bold;
+        }
+
+        .hero-content .cta-button {
+            display: inline-block;
+            background-color: #00f0ff;
+            color: #000;
+            padding: 12px 30px;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 240, 255, 0.3);
+            margin-top: 10px;
+        }
+
+        .hero-content .cta-button:hover {
+            background-color: #ff0080;
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(255, 0, 128, 0.5);
+        }
+
+        /* Image Section */
+        .hero-image {
+            width: 400px;
+            height: 400px;
+            background: #111;
+            border: 2px solid #00f0ff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px #00f0ff;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Tooltip for Micro-interaction */
+        .tooltip {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 240, 255, 0.8);
+            color: #000;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .hero-image:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(10px);
+        }
+
+        /* Neobrutalism Image Cards Section */
+        .image-cards {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 5%;
+            background-color: #000;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            width: 200px;
+            height: 200px;
+            background-color: #333;
+            color: #00ffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 2px solid #00ffff;
+            overflow: hidden;
+            position: relative;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.7;
+        }
+
+        .card span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card:hover {
+            background-color: #00ffff;
+            color: #333;
+        }
+
+        /* Responsive Design for Image Cards */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Cards Section */
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #fffcf2;
+            border: 4px solid #ff4757;
+            border-radius: 10px;
+            width: 320px;
+            padding: 20px;
+            position: relative;
+            box-shadow: 8px 8px 0 #000;
+            transition: transform 0.3s ease;
+            margin: 15px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card .image-placeholder {
+            background: #ff4757;
+            color: #fff;
+            height: 150px;
+            border: 2px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .card .country {
+            font-size: 0.9em;
+            background: #1e90ff;
+            color: #fff;
+            padding: 5px 10px;
+            display: inline-block;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .card h2 {
+            font-size: 1.8em;
+            color: #000;
+            margin: 10px 0;
+        }
+
+        .card .details {
+            font-size: 1em;
+            color: #444;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .card .stars {
+            margin: 10px 0;
+        }
+
+        .card .stars i {
+            color: #ffd700;
+            font-size: 1.2em;
+        }
+
+        .card .reviews {
+            font-size: 1em;
+            color: #000;
+        }
+
+        .card .bookmark {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5em;
+            color: #444;
+            cursor: pointer;
+        }
+
+        .card .bookmark:hover {
+            color: #ff4757;
+        }
+
+        /* Timer Section */
+        .timer {
+            background: #1a1a1a;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .timer h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #00f0ff;
+        }
+
+        .timer p {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .countdown div {
+            background: #00f0ff;
+            color: #1c1c1c;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 4px 4px 0 #333;
+            text-align: center;
+            font-size: 1.8rem;
+            min-width: 80px;
+            transition: transform 0.2s ease;
+        }
+
+        .countdown div:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 0 #111;
+        }
+
+        .time-label {
+            font-size: 0.8rem;
+            color: #1c1c1c;
+            margin-top: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: #1a1a1a;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .testimonial-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 20px;
+            border: 4px solid #ff007a;
+            box-shadow: 0 0 15px #ff007a;
+            width: 30%;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px #ff007a, 0 0 15px #00f0ff;
+        }
+
+        .testimonial img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #00f0ff;
+        }
+
+        .testimonial h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ff007a;
+        }
+
+        .testimonial .rating {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .testimonial p {
+            font-size: 1rem;
+            color: #ddd;
+            margin: 5px 0;
+        }
+
+        .neon-line {
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #ff007a, #00f0ff);
+            animation: neon-line 3s infinite alternate;
+        }
+
+        .neon-line.top {
+            top: 0;
+            left: 0;
+        }
+
+        .neon-line.bottom {
+            bottom: 0;
+            right: 0;
+        }
+
+        @keyframes neon-line {
+            0% {
+                transform: scaleX(0);
+            }
+
+            100% {
+                transform: scaleX(1);
+            }
+        }
+
+        /* Top Destinations Section */
+        #countries {
+            padding: 60px 20px;
+            background-color: #000;
+            text-align: center;
+        }
+
+        #countries h2 {
+            font-size: 2.5rem;
+            color: #00f0ff;
+            margin-bottom: 40px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .destination-card {
+            background: #1a1a1a;
+            border: 2px solid #00f0ff;
+            border-radius: 10px;
+            width: 300px;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 0 15px #00f0ff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px #00f0ff, 0 0 15px #ff007a;
+        }
+
+        .destination-card .image-placeholder {
+            background: #333;
+            height: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .destination-card .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .destination-card .country {
+            font-size: 0.9em;
+            background: #ff007a;
+            color: #fff;
+            padding: 5px 10px;
+            display: inline-block;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .destination-card h2 {
+            font-size: 1.8em;
+            color: #00f0ff;
+            margin: 10px 0;
+        }
+
+        .destination-card .details {
+            font-size: 1em;
+            color: #ddd;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .destination-card .stars {
+            margin: 10px 0;
+        }
+
+        .destination-card .stars i {
+            color: #ffd700;
+            font-size: 1.2em;
+        }
+
+        .destination-card .reviews {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        .destination-card .bookmark {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5em;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .destination-card .bookmark:hover {
+            color: #ff007a;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #000;
+            color: #00ffff;
+            text-align: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        footer .contact-section,
+        footer .follow-section,
+        footer .location-section {
+            margin-bottom: 20px;
+        }
+
+        footer h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer .contact-details,
+        footer .social-icons {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        footer .social-icons a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: #00ffff;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        footer iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            margin-top: 20px;
+        }
+
+        .footer-divider {
+            border-top: 1px solid #00ffff;
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #1a1a1a;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 20px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .burger {
+                display: flex;
+            }
+
+            .card,
+            .testimonial {
+                width: 100%;
+            }
+
+            .countdown div {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .hero {
+                padding: 150px 20px;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .timer h2 {
+                font-size: 2rem;
+            }
+
+            .timer p {
+                font-size: 1rem;
+            }
+
+            .countdown div {
+                font-size: 1.5rem;
+                padding: 10px 15px;
+            }
+
+            .time-label {
+                font-size: 0.7rem;
+            }
+
+            /* Increase distance between button and image on small screens */
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content {
+                margin-bottom: 30px;
+            }
+
+            .hero-image {
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 100px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .timer h2 {
+                font-size: 1.8rem;
+            }
+
+            .timer p {
+                font-size: 0.9rem;
+            }
+
+            .countdown div {
+                font-size: 1.2rem;
+                padding: 8px 12px;
+            }
+
+            .time-label {
+                font-size: 0.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <div class="logo">Nambiyath</div>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to <span class="highlight">Nambiyath</span></h1>
+            <p>
+                At Nambiyath, we believe <span class="highlight">life is a journey</span>. It's not just about the
+                destination, but the <span class="highlight">mishaps</span>, <span class="highlight">adventures</span>,
+                and <span class="highlight">memories</span> you create along the way.
+            </p>
+            <p>
+                We bring you unparalleled opportunities to explore the world, discover new cultures, and make every
+                journey unforgettable.
+            </p>
+            <a href="#" class="cta-button">Discover More</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://i.pinimg.com/736x/fb/6f/a3/fb6fa35b0f77c6213e88ec9652f1919b.jpg"
+                alt="Journey with Nambiyath">
+            <div class="tooltip">Your next adventure starts here!</div>
+        </div>
+    </section>
+
+    <!-- Neobrutalism Image Cards Section -->
+    <section class="image-cards">
+        <div class="container">
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/0b/22/f1/0b22f19b0c975bfcb907aa70ff26d7d8.jpg" alt="North America">
+                <span>North America</span>
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/8c/74/7b/8c747b1d4e33e4a1bdee1fcf42a7de12.jpg" alt="South America">
+                <span>South America</span>
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/55/26/14/5526145c9e43387befd862ce4387d2e7.jpg" alt="Asia">
+                <span>Asia</span>
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/83/74/2b/83742b01e477ea5c97023258bb732e8b.jpg" alt="Europe">
+                <span>Europe</span>
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/c1/26/88/c12688aa0fc510c3aec3f90d5a86c187.jpg" alt="Australia">
+                <span>Australia</span>
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/fc/ee/15/fcee15fe677e321801c76fd0c01da4a6.jpg" alt="Africa">
+                <span>Africa</span>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="countries">
+        <h2>Top Destinations</h2>
+        <div class="card-container">
+            <div class="destination-card">
+                <div class="bookmark">
+                    <i class="fas fa-bookmark"></i>
+                </div>
+                <div class="image-placeholder">
+                    <img src="https://i.pinimg.com/736x/da/1e/1b/da1e1bdaf5b71f239ada00e3b3641ff3.jpg" alt="Reykjavik">
+                </div>
+                <div class="country">Iceland</div>
+                <h2>REYKJAVIK</h2>
+                <div class="details">300 $ | <strong>15 DAYS</strong></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="reviews">20 Reviews</div>
+            </div>
+            <div class="destination-card">
+                <div class="bookmark">
+                    <i class="fas fa-bookmark"></i>
+                </div>
+                <div class="image-placeholder">
+                    <img src="https://i.pinimg.com/736x/ae/ad/7d/aead7d3aeb8e27b8f352beaf7dc82adb.jpg" alt="Tokyo">
+                </div>
+                <div class="country">Japan</div>
+                <h2>TOKYO</h2>
+                <div class="details">450 $ | <strong>17 DAYS</strong></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="reviews">25 Reviews</div>
+            </div>
+            <div class="destination-card">
+                <div class="bookmark">
+                    <i class="fas fa-bookmark"></i>
+                </div>
+                <div class="image-placeholder">
+                    <img src="https://i.pinimg.com/736x/f6/89/58/f68958e3713f79c1ee7b66ac3f374cff.jpg" alt="Rome">
+                </div>
+                <div class="country">Italy</div>
+                <h2>ROME</h2>
+                <div class="details">500 $ | <strong>16 DAYS</strong></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="reviews">30 Reviews</div>
+            </div>
+            <div class="destination-card">
+                <div class="bookmark">
+                    <i class="fas fa-bookmark"></i>
+                </div>
+                <div class="image-placeholder">
+                    <img src="https://i.pinimg.com/736x/a3/c8/65/a3c8655874a7ce495b6b13873bc98517.jpg" alt="Bali">
+                </div>
+                <div class="country">Indonesia</div>
+                <h2>BALI</h2>
+                <div class="details">550 $ | <strong>6 DAYS</strong></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="reviews">40 Reviews</div>
+            </div>
+            <div class="destination-card">
+                <div class="bookmark">
+                    <i class="fas fa-bookmark"></i>
+                </div>
+                <div class="image-placeholder">
+                    <img src="https://i.pinimg.com/736x/c9/83/26/c98326d984b0888f753a87203cbe2bde.jpg" alt="Cape Town">
+                </div>
+                <div class="country">South Africa</div>
+                <h2>CAPE TOWN</h2>
+                <div class="details">700 $ | <strong>8 DAYS</strong></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="reviews">28 Reviews</div>
+            </div>
+            <div class="destination-card">
+                <div class="bookmark">
+                    <i class="fas fa-bookmark"></i>
+                </div>
+                <div class="image-placeholder">
+                    <img src="https://i.pinimg.com/736x/ed/15/ba/ed15ba14e3d0b5000b426b8a12dae803.jpg" alt="Dubai">
+                </div>
+                <div class="country">UAE</div>
+                <h2>DUBAI</h2>
+                <div class="details">850 $ | <strong>5 DAYS</strong></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="reviews">55 Reviews</div>
+            </div>
+            <div class="destination-card">
+                <div class="bookmark">
+                    <i class="fas fa-bookmark"></i>
+                </div>
+                <div class="image-placeholder">
+                    <img src="https://i.pinimg.com/736x/67/b0/05/67b005ce51bef0e912ec0469bdb0a33e.jpg" alt="Santorini">
+                </div>
+                <div class="country">Greece</div>
+                <h2>SANTORINI</h2>
+                <div class="details">650 $ | <strong>7 DAYS</strong></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="reviews">33 Reviews</div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Country Cards Section -->
+
+
+    <!-- Timer Section -->
+    <section class="timer">
+        <h2>Next Big Tour</h2>
+        <p>22 days - 21 nights | 799 $</p>
+        <p>Come join us on our journey to Europe</p>
+        <div class="countdown">
+            <div>
+                <span id="days">0</span>
+                <div class="time-label">Days</div>
+            </div>
+            <div>
+                <span id="hours">0</span>
+                <div class="time-label">Hours</div>
+            </div>
+            <div>
+                <span id="minutes">0</span>
+                <div class="time-label">Minutes</div>
+            </div>
+            <div>
+                <span id="seconds">0</span>
+                <div class="time-label">Seconds</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>Customer Reviews</h2>
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <div class="neon-line top"></div>
+                <img src="https://i.pravatar.cc/150?img=12" alt="Reviewer 1">
+                <h3>Alexa Smith</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>"Absolutely brilliant service! Highly recommend for professional work."</p>
+                <div class="neon-line bottom"></div>
+            </div>
+            <!-- Add 4 more testimonials here -->
+            <div class="testimonial">
+                <div class="neon-line top"></div>
+                <img src="https://i.pravatar.cc/150?img=13" alt="Reviewer 2">
+                <h3>John Doe</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"Amazing experience! Will definitely travel with Nambiyath again."</p>
+                <div class="neon-line bottom"></div>
+            </div>
+            <div class="testimonial">
+                <div class="neon-line top"></div>
+                <img src="https://i.pravatar.cc/150?img=14" alt="Reviewer 3">
+                <h3>Jane Smith</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>"Fantastic service and great destinations. Highly recommended!"</p>
+                <div class="neon-line bottom"></div>
+            </div>
+            <div class="testimonial">
+                <div class="neon-line top"></div>
+                <img src="https://i.pravatar.cc/150?img=15" alt="Reviewer 4">
+                <h3>Michael Brown</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"The best travel experience I've ever had. Thank you, Nambiyath!"</p>
+                <div class="neon-line bottom"></div>
+            </div>
+            <div class="testimonial">
+                <div class="neon-line top"></div>
+                <img src="https://i.pravatar.cc/150?img=16" alt="Reviewer 5">
+                <h3>Sarah Johnson</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>"Incredible service and unforgettable memories. Highly recommend!"</p>
+                <div class="neon-line bottom"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <!-- Contact Us Section -->
+        <div class="contact-section">
+            <h3>Contact Us</h3>
+            <div class="contact-details">
+                <p>📞 9961930786</p>
+                <p>✉️ mr.ramesh.nr@gmail.com</p>
+                <p>📍 Nambiyath house, Padoor, Kerala</p>
+            </div>
+        </div>
+
+        <div class="footer-divider"></div> <!-- Divider -->
+
+        <!-- Follow Us Section -->
+        <div class="follow-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-divider"></div> <!-- Divider -->
+
+        <!-- Location Section -->
+        <div class="location-section">
+            <h3>Location</h3>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0191147482453!2d144.9559283153219!3d-37.8172099797519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce6e0!2sVictoria!5e0!3m2!1sen!2sin!4v1615190234512!5m2!1sen!2sin"
+                allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Burger Menu
+        const burger = document.querySelector('.burger');
+        const navUl = document.querySelector('nav ul');
+
+        burger.addEventListener('click', () => {
+            navUl.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Countdown Timer
+        function countdown() {
+            const targetDate = new Date().getTime() + (22 * 24 * 60 * 60 * 1000);
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const remaining = targetDate - now;
+
+                if (remaining >= 0) {
+                    const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+                    document.getElementById("days").textContent = days;
+                    document.getElementById("hours").textContent = hours;
+                    document.getElementById("minutes").textContent = minutes;
+                    document.getElementById("seconds").textContent = seconds;
+                } else {
+                    document.querySelector(".countdown").innerHTML = "<p>Time's up!</p>";
+                }
+            }
+
+            setInterval(updateCountdown, 1000);
+        }
+
+        countdown();
+    </script>
+</body>
+
+</html>
