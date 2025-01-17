@@ -106,6 +106,32 @@
             transition: all 0.3s ease;
         }
 
+        @media (max-width: 768px) {
+            .burger {
+                display: flex;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #1a1a1a;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 20px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
         /* Hero Section */
         .hero {
             display: flex;
@@ -163,7 +189,6 @@
             box-shadow: 0 6px 20px rgba(255, 0, 128, 0.5);
         }
 
-        /* Image Section */
         .hero-image {
             width: 400px;
             height: 400px;
@@ -189,7 +214,6 @@
             transform: scale(1.1);
         }
 
-        /* Tooltip for Micro-interaction */
         .tooltip {
             position: absolute;
             top: 10px;
@@ -208,6 +232,28 @@
             visibility: visible;
             opacity: 1;
             transform: translateY(10px);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 5%;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .hero-image {
+                width: 100%;
+                height: 300px;
+                margin-top: 20px;
+            }
         }
 
         /* Neobrutalism Image Cards Section */
@@ -265,7 +311,6 @@
             color: #333;
         }
 
-        /* Responsive Design for Image Cards */
         @media (max-width: 768px) {
             .container {
                 grid-template-columns: repeat(2, 1fr);
@@ -278,49 +323,61 @@
             }
         }
 
-        /* Cards Section */
+        /* Top Destinations Section */
+        #countries {
+            padding: 60px 20px;
+            background-color: #000;
+            text-align: center;
+        }
+
+        #countries h2 {
+            font-size: 2.5rem;
+            color: #00f0ff;
+            margin-bottom: 40px;
+        }
+
         .card-container {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             gap: 30px;
-            padding: 60px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .card {
-            background: #fffcf2;
-            border: 4px solid #ff4757;
+        .destination-card {
+            background: #1a1a1a;
+            border: 2px solid #00f0ff;
             border-radius: 10px;
-            width: 320px;
+            width: 300px;
             padding: 20px;
             position: relative;
-            box-shadow: 8px 8px 0 #000;
-            transition: transform 0.3s ease;
-            margin: 15px;
+            box-shadow: 0 0 15px #00f0ff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .card:hover {
+        .destination-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 0 25px #00f0ff, 0 0 15px #ff007a;
         }
 
-        .card .image-placeholder {
-            background: #ff4757;
-            color: #fff;
+        .destination-card .image-placeholder {
+            background: #333;
             height: 150px;
-            border: 2px solid #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5em;
-            font-weight: bold;
+            border-radius: 10px;
+            overflow: hidden;
             margin-bottom: 15px;
         }
 
-        .card .country {
+        .destination-card .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .destination-card .country {
             font-size: 0.9em;
-            background: #1e90ff;
+            background: #ff007a;
             color: #fff;
             padding: 5px 10px;
             display: inline-block;
@@ -328,44 +385,52 @@
             border-radius: 5px;
         }
 
-        .card h2 {
+        .destination-card h2 {
             font-size: 1.8em;
-            color: #000;
+            color: #00f0ff;
             margin: 10px 0;
         }
 
-        .card .details {
+        .destination-card .details {
             font-size: 1em;
-            color: #444;
+            color: #ddd;
             font-weight: bold;
             margin-bottom: 15px;
         }
 
-        .card .stars {
+        .destination-card .stars {
             margin: 10px 0;
         }
 
-        .card .stars i {
+        .destination-card .stars i {
             color: #ffd700;
             font-size: 1.2em;
         }
 
-        .card .reviews {
+        .destination-card .reviews {
             font-size: 1em;
-            color: #000;
+            color: #ddd;
         }
 
-        .card .bookmark {
+        .destination-card .bookmark {
             position: absolute;
             top: 15px;
             right: 15px;
             font-size: 1.5em;
-            color: #444;
+            color: #ddd;
             cursor: pointer;
+            transition: color 0.3s ease;
         }
 
-        .card .bookmark:hover {
-            color: #ff4757;
+        .destination-card .bookmark:hover {
+            color: #ff007a;
+        }
+
+        @media (max-width: 768px) {
+            .destination-card {
+                width: 100%;
+                max-width: 400px;
+            }
         }
 
         /* Timer Section */
@@ -507,110 +572,14 @@
             }
         }
 
-        /* Top Destinations Section */
-        #countries {
-            padding: 60px 20px;
-            background-color: #000;
-            text-align: center;
+        @media (max-width: 768px) {
+            .testimonial {
+                width: 100%;
+                max-width: 400px;
+            }
         }
 
-        #countries h2 {
-            font-size: 2.5rem;
-            color: #00f0ff;
-            margin-bottom: 40px;
-        }
-
-        .card-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .destination-card {
-            background: #1a1a1a;
-            border: 2px solid #00f0ff;
-            border-radius: 10px;
-            width: 300px;
-            padding: 20px;
-            position: relative;
-            box-shadow: 0 0 15px #00f0ff;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .destination-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 25px #00f0ff, 0 0 15px #ff007a;
-        }
-
-        .destination-card .image-placeholder {
-            background: #333;
-            height: 150px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 15px;
-        }
-
-        .destination-card .image-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .destination-card .country {
-            font-size: 0.9em;
-            background: #ff007a;
-            color: #fff;
-            padding: 5px 10px;
-            display: inline-block;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-
-        .destination-card h2 {
-            font-size: 1.8em;
-            color: #00f0ff;
-            margin: 10px 0;
-        }
-
-        .destination-card .details {
-            font-size: 1em;
-            color: #ddd;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .destination-card .stars {
-            margin: 10px 0;
-        }
-
-        .destination-card .stars i {
-            color: #ffd700;
-            font-size: 1.2em;
-        }
-
-        .destination-card .reviews {
-            font-size: 1em;
-            color: #ddd;
-        }
-
-        .destination-card .bookmark {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5em;
-            color: #ddd;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .destination-card .bookmark:hover {
-            color: #ff007a;
-        }
-
-        /* Footer Styles */
+        /* Footer Section */
         footer {
             background-color: #000;
             color: #00ffff;
@@ -663,120 +632,13 @@
             width: 80%;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background: #1a1a1a;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                position: absolute;
-                top: 70px;
-                left: 0;
-                padding: 20px;
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            .burger {
-                display: flex;
-            }
-
-            .card,
-            .testimonial {
-                width: 100%;
-            }
-
-            .countdown div {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .hero {
-                padding: 150px 20px;
-            }
-
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero p {
-                font-size: 1.5rem;
-            }
-
-            .btn {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-
-            .timer h2 {
-                font-size: 2rem;
-            }
-
-            .timer p {
-                font-size: 1rem;
-            }
-
-            .countdown div {
-                font-size: 1.5rem;
-                padding: 10px 15px;
-            }
-
-            .time-label {
-                font-size: 0.7rem;
-            }
-
-            /* Increase distance between button and image on small screens */
-            .hero {
-                flex-direction: column;
+            footer {
                 text-align: center;
             }
 
-            .hero-content {
-                margin-bottom: 30px;
-            }
-
-            .hero-image {
-                margin-top: 30px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 100px 20px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-
-            .timer h2 {
-                font-size: 1.8rem;
-            }
-
-            .timer p {
-                font-size: 0.9rem;
-            }
-
-            .countdown div {
-                font-size: 1.2rem;
-                padding: 8px 12px;
-            }
-
-            .time-label {
-                font-size: 0.6rem;
+            .social-icons a {
+                margin: 0 5px;
             }
         }
     </style>
@@ -854,7 +716,7 @@
         </div>
     </section>
 
-
+    <!-- Top Destinations Section -->
     <section id="countries">
         <h2>Top Destinations</h2>
         <div class="card-container">
@@ -991,13 +853,8 @@
                 </div>
                 <div class="reviews">33 Reviews</div>
             </div>
-
         </div>
     </section>
-
-
-    <!-- Country Cards Section -->
-
 
     <!-- Timer Section -->
     <section class="timer">
@@ -1042,7 +899,6 @@
                 <p>"Absolutely brilliant service! Highly recommend for professional work."</p>
                 <div class="neon-line bottom"></div>
             </div>
-            <!-- Add 4 more testimonials here -->
             <div class="testimonial">
                 <div class="neon-line top"></div>
                 <img src="https://i.pravatar.cc/150?img=13" alt="Reviewer 2">
@@ -1104,7 +960,6 @@
 
     <!-- Footer Section -->
     <footer>
-        <!-- Contact Us Section -->
         <div class="contact-section">
             <h3>Contact Us</h3>
             <div class="contact-details">
@@ -1114,9 +969,8 @@
             </div>
         </div>
 
-        <div class="footer-divider"></div> <!-- Divider -->
+        <div class="footer-divider"></div>
 
-        <!-- Follow Us Section -->
         <div class="follow-section">
             <h3>Follow Us</h3>
             <div class="social-icons">
@@ -1126,9 +980,8 @@
             </div>
         </div>
 
-        <div class="footer-divider"></div> <!-- Divider -->
+        <div class="footer-divider"></div>
 
-        <!-- Location Section -->
         <div class="location-section">
             <h3>Location</h3>
             <iframe
@@ -1145,16 +998,6 @@
 
         burger.addEventListener('click', () => {
             navUl.classList.toggle('active');
-        });
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
         });
 
         // Countdown Timer
